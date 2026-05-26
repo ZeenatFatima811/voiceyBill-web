@@ -50,7 +50,7 @@ import {
 import { toast } from "sonner";
 
 const formSchema = z.object({
-  title: z.string().min(2, { message: "Title must be at least 2 characters." }),
+  title: z.string().trim().min(2, { message: "Title must be at least 2 characters." }),
   amount: z.string().refine((val) => !isNaN(Number(val)) && Number(val) > 0, {
     message: "Amount must be a positive number.",
   }),
@@ -398,7 +398,7 @@ const TransactionForm = (props: {
                         mode="single"
                         selected={field.value}
                         onSelect={(date) => {
-                          console.log(date);
+                          
                           field.onChange(date); // This updates the form value
                         }}
                         disabled={(date) => date < new Date("2023-01-01")}

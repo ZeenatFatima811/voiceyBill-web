@@ -42,7 +42,7 @@ const TransactionTable = (props: {
     pageSize: filter.pageSize,
   });
 
-  const transactions = data?.transations || [];
+  const transactions = data?.transactions || [];
   const pagination = {
     totalItems: data?.pagination?.totalCount || 0,
     totalPages: data?.pagination?.totalPages || 0,
@@ -51,7 +51,7 @@ const TransactionTable = (props: {
   };
 
   const handleSearch = (value: string) => {
-    console.log(debouncedTerm);
+    
     setSearchTerm(value);
   };
 
