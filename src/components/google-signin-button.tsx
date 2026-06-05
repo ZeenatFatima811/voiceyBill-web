@@ -22,7 +22,7 @@ export const GoogleSignInButton = ({
     }
   };
 
-  // Type aligned with GoogleLogin definition
+  // Explicit type so TS happy
   const handleGoogleError: () => void = () => {
     onError("Failed to sign in with Google. Please try again.");
   };
@@ -32,9 +32,9 @@ export const GoogleSignInButton = ({
       <GoogleLogin
         onSuccess={handleGoogleSuccess}
         onError={handleGoogleError}
-        size={"large" as const}
-        locale={"en" as const}
-        containerProps={{ style: { width: "100%" } }}
+        // casted to const literals to match union types
+        size={"large" as "large"}
+        locale={"en" as "en"}
       />
       {isLoading && <p className="loading-text">Loading...</p>}
     </div>
