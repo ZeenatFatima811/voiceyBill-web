@@ -22,7 +22,8 @@ export const GoogleSignInButton = ({
     }
   };
 
-  const handleGoogleError = () => {
+  // Type aligned with GoogleLogin definition
+  const handleGoogleError: () => void = () => {
     onError("Failed to sign in with Google. Please try again.");
   };
 
@@ -31,8 +32,9 @@ export const GoogleSignInButton = ({
       <GoogleLogin
         onSuccess={handleGoogleSuccess}
         onError={handleGoogleError}
-        size="large"
-        locale="en"
+        size={"large" as const}
+        locale={"en" as const}
+        containerProps={{ style: { width: "100%" } }}
       />
       {isLoading && <p className="loading-text">Loading...</p>}
     </div>
