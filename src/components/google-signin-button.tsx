@@ -22,7 +22,7 @@ export const GoogleSignInButton = ({
     }
   };
 
-  // Explicit type so TS happy
+  // Explicit type so TypeScript is satisfied
   const handleGoogleError: () => void = () => {
     onError("Failed to sign in with Google. Please try again.");
   };
@@ -32,8 +32,8 @@ export const GoogleSignInButton = ({
       <GoogleLogin
         onSuccess={handleGoogleSuccess}
         onError={handleGoogleError}
-        size="large"
-        locale="en"
+        size="large"   // valid union literal
+        locale="en"    // valid union literal
       />
       {isLoading && <p className="loading-text">Loading...</p>}
     </div>
