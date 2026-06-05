@@ -1,4 +1,4 @@
-import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import { GoogleOAuthProvider, GoogleLogin, CredentialResponse } from "@react-oauth/google";
 import "./google-signin-button.css";
 
 interface GoogleSignInButtonProps {
@@ -14,7 +14,7 @@ export const GoogleSignInButton = ({
   isLoading = false,
   className = "",
 }: GoogleSignInButtonProps) => {
-  const handleGoogleSuccess = (credentialResponse: any) => {
+  const handleGoogleSuccess = (credentialResponse: CredentialResponse) => {
     if (credentialResponse?.credential) {
       onSuccess(credentialResponse.credential);
     } else {
@@ -36,6 +36,7 @@ export const GoogleSignInButton = ({
         text="continue_with"
         width="100%"
       />
+      {isLoading && <p className="loading-text">Loading...</p>}
     </div>
   );
 };
