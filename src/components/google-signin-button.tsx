@@ -33,8 +33,6 @@ export const GoogleSignInButton = ({
         onError={handleGoogleError}
         size="large"
         locale="en"
-        text="continue_with"
-        width="100%"
       />
       {isLoading && <p className="loading-text">Loading...</p>}
     </div>
