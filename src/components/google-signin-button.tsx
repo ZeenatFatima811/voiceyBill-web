@@ -22,8 +22,7 @@ export const GoogleSignInButton = ({
     }
   };
 
-  // Explicit type so TypeScript is satisfied
-  const handleGoogleError: () => void = () => {
+  const handleGoogleError = () => {
     onError("Failed to sign in with Google. Please try again.");
   };
 
@@ -32,10 +31,13 @@ export const GoogleSignInButton = ({
       <GoogleLogin
         onSuccess={handleGoogleSuccess}
         onError={handleGoogleError}
-        size="large"   // valid union literal
-        locale="en"    // valid union literal
       />
-      {isLoading && <p className="loading-text">Loading...</p>}
+
+      {isLoading && (
+        <p className="loading-text">
+          Loading...
+        </p>
+      )}
     </div>
   );
 };
@@ -44,7 +46,9 @@ interface GoogleSignInProviderProps {
   children: React.ReactNode;
 }
 
-export const GoogleSignInProvider = ({ children }: GoogleSignInProviderProps) => {
+export const GoogleSignInProvider = ({
+  children,
+}: GoogleSignInProviderProps) => {
   const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
   if (!clientId) {
