@@ -32,9 +32,8 @@ export const GoogleSignInButton = ({
       <GoogleLogin
         onSuccess={handleGoogleSuccess}
         onError={handleGoogleError}
-        // casted to const literals to match union types
-        size={"large" as "large"}
-        locale={"en" as "en"}
+        size="large"
+        locale="en"
       />
       {isLoading && <p className="loading-text">Loading...</p>}
     </div>
