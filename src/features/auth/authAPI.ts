@@ -55,6 +55,13 @@ export const authApi = apiClient.injectEndpoints({
         body,
       }),
     }),
+    googleLogin: builder.mutation<LoginResponse, { idToken: string }>({
+      query: (body) => ({
+        url: "/auth/google",
+        method: "POST",
+        body,
+      }),
+    }),
 
     //skip
     logout: builder.mutation({
@@ -79,6 +86,7 @@ export const {
   useResendOtpMutation,
   useForgotPasswordMutation,
   useResetPasswordMutation,
-  useRefreshMutation,
+  useGoogleLoginMutation,
   useLogoutMutation,
+  useRefreshMutation,
 } = authApi;
